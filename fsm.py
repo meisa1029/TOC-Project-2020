@@ -34,3 +34,13 @@ class TocMachine(GraphMachine):
 
     def on_exit_state2(self):
         print("Leaving state2")
+
+    def is_going_to_try(self, event):
+	text = event.message.text
+	return text.lower() == "trying state"
+
+    def on_enter_state1(self, event):
+	print("enter tring state")
+
+    def on_exit_try(self):
+	print("leave try);
