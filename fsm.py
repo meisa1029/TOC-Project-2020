@@ -37,10 +37,14 @@ class TocMachine(GraphMachine):
 
     def is_going_to_try(self, event):
         text = event.message.text
-        return text.lower() == "trying state"
+        return text.lower() == "try"
 
     def on_enter_state1(self, event):
         print("enter tring state")
+
+        reply_token = event.reply_token
+        send_text_message(reply_token, "Trigger try")
+        self.go_back()
 
     def on_exit_try(self):
         print("leave try")
