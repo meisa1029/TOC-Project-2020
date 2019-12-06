@@ -43,4 +43,4 @@ class TocMachine(GraphMachine):
         print("enter tring state")
 
     def on_exit_try(self):
-        print("leave try)
+        print("leave try")
