@@ -35,7 +35,6 @@ machine = TocMachine(
 	    "dest": "try",
 	    "conditions": "is_going_to_try"
 	}
-}
     ],
     initial="user",
     auto_transitions=False,
