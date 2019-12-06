@@ -39,7 +39,7 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "try"
 
-    def on_enter_state1(self, event):
+    def on_enter_try(self, event):
         print("enter tring state")
 
         reply_token = event.reply_token
