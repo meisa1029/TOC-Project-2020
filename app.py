@@ -18,7 +18,7 @@ machine = TocMachine(
     transitions=[
         {
             "trigger": "advance",
-            "source": "meat",
+            "source": ["user", "meat"],
             "dest": "menu",
             "conditions": "is_going_to_menu",
         },

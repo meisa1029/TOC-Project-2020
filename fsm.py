@@ -42,7 +42,8 @@ class TocMachine(GraphMachine):
     def is_going_to_menu(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state != "0" and text.lower() == "結束")
+        #return (state != "0" and text.lower() == "結束")
+        return True
 
     def is_going_to_random(self, event):
         text = event.message.text
