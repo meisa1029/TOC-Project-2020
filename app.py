@@ -24,7 +24,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": ["user", "menu", "meat"],
+            "source": ["user", "menu"],
             "dest": "random",
             "conditions": "is_going_to_random",
         },
