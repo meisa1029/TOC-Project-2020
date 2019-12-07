@@ -15,6 +15,7 @@ meat_cnt = 6
 veg_cnt = 4
 side_cnt = 5
 soup_cnt = 3
+other_cnt = 5
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
