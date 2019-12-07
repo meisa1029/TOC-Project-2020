@@ -140,8 +140,8 @@ class TocMachine(GraphMachine):
     def on_exit_menu(self):
         print("Leaving menu")
 
-    def on_exit_random(self):
-        print("Leaving random")
+#    def on_exit_random(self):
+#        print("Leaving random")
 
     def on_exit_meat(self):
         print("Leaving meat")
