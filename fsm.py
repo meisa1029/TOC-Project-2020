@@ -24,7 +24,7 @@ state = "1"
 def read_txt(file_open):
     if file_open == "state":
         f = open("state.txt", "r")
-        s = f.read()
+        s = f.read(1)
         f.close()
         return s
 
@@ -102,7 +102,7 @@ class TocMachine(GraphMachine):
     def on_enter_meat(self, event):
         print("choosing meat")
         reply_token = event.reply_token
-        st = read_txt("state")
+        #st = read_txt("state")
         reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  如：菜、肉\n結束選擇請輸入\"結束\"\n"+st
         send_text_message(reply_token, reply)
         self.go_back()
