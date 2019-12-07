@@ -41,7 +41,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_other(self, event):
         text = event.message.text
-        return (text.lower() == "其它" || text.lower() == "其他")
+        return (text.lower() == "其它" or text.lower() == "其他")
 
     # on_enter_state
 
