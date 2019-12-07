@@ -33,10 +33,10 @@ def get_t_name(t):
 def check(t_name, s):
     read = read_txt(t_name)
     r = read.split(" ")
-    flag = 1
+    index = -1
     for i in range(len(r)):
         if r[i] == s:
-            flag = 0
+            return flag
     return flag
 
 class TocMachine(GraphMachine):
@@ -172,7 +172,7 @@ class TocMachine(GraphMachine):
         if t_name == "0":
             reply = "格式錯誤\n結束新增\刪除請輸入\"結束\""
         else:
-            if check(t_name, t[1]):
+            if check(t_name, t[1]) == -1:
                 read = read_txt(t_name)
                 read = read + " " + t[1]
                 write_txt(t_name, read)
@@ -185,7 +185,23 @@ class TocMachine(GraphMachine):
     def on_enter_delete(self, event):
         print("delete")
         reply_token = event.reply_token
-        reply = t[2] + " 新增成功"
+        read = read_txt("change.txt")
+        t = read.split(" ")
+        t_name = get_t_name(t[0])
+        if t_name == "0":
+            reply = "格式錯誤\n結束新增\刪除請輸入\"結束\""
+        else:
+            if check(t_name, t[1]) != -1:
+                read = read_txt(t_name)
+                r = read.split(" ")
+                r.remove(t[1])
+                write = ""
+                for i in range(len(r)):
+                    write = write + r[i]
+                write_txt(t_name, write)
+                reply = t[1] + " 新增成功\n結束新增\刪除請輸入\"結束\""
+            else:
+                reply = "該品項已經存在\n結束新增\刪除請輸入\"結束\""
         send_text_message(reply_token, reply)
 #        self.go_back()
     # on_exit
