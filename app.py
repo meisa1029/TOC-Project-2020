@@ -24,13 +24,13 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": ["user", "menu"],
+            "source": ["user", "menu", "meat"],
             "dest": "random",
             "conditions": "is_going_to_random",
         },
         {
             "trigger": "advance",
-            "source": ["random", "meat"],
+            "source": "random",
             "dest": "meat",
             "conditions": "is_going_to_meat",
         },
