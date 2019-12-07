@@ -37,7 +37,7 @@ def check(t_name, s):
     r = read.split(" ")
     flag = 1
     for i in range(len(r)):
-        if r[i] == s
+        if r[i] == s:
             flag = 0
     return flag
 
