@@ -26,7 +26,7 @@ def read_txt(file_open):
         f = open("state.txt", "r")
         s = f.read()
         f.close()
-	return s
+        return s
 
 def write_txt(file_open):
     if file_open == "state":
