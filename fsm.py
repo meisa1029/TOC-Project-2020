@@ -149,9 +149,9 @@ class TocMachine(GraphMachine):
         print("choosing soup")
         reply_token = event.reply_token
         read = read_txt("soup.txt")
-        #soups = read.split(" ")
-        #soup_cnt = len(soups)
-        #reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        soups = read.split(" ")
+        soup_cnt = len(soups)
+        reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
 #        self.go_back()
 
