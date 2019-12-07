@@ -48,12 +48,12 @@ class TocMachine(GraphMachine):
     def is_going_to_random(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state == 0 and text.lower() == "1")
+        return (state == "0" and text.lower() == "1")
     
     def is_going_to_meat(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state == 1 and text.lower() == "肉")
+        return (state == "1" and text.lower() == "肉")
         #return text.lower() == "肉"
 
     def is_going_to_veg(self, event):
