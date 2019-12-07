@@ -111,7 +111,7 @@ class TocMachine(GraphMachine):
         print("choosing vegetable")
         reply_token = event.reply_token
         reply = veg[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        send_text_message(reply_token, relpy)
+        send_text_message(reply_token, reply)
         self.go_back()
 
     def on_enter_side_dish(self, event):

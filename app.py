@@ -36,7 +36,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "radom",
+            "source": "random",
             "dest": "meat",
             "conditions": "is_going_to_meat",
         },
