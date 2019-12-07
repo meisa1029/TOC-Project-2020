@@ -41,38 +41,38 @@ class TocMachine(GraphMachine):
 
     def is_going_to_menu(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state != 0 and text.lower() == "結束")
 
     def is_going_to_random(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state == 0 and text.lower() == "1")
     
     def is_going_to_meat(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state == 1 and text.lower() == "肉")
         #return text.lower() == "肉"
 
     def is_going_to_veg(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state == 1 and text.lower() == "菜")
 
     def is_going_to_side_dish(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state == 1 and text.lower() == "配菜")
 
     def is_going_to_soup(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state == 1 and text.lower() == "湯")
 
     def is_going_to_other(self, event):
         text = event.message.text
-        get_txt("state")
+        read_txt("state")
         return (state == 1 and (text.lower() == "其它" or text.lower() == "其他"))
 
     def is_going_to_add(self, event):
