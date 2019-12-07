@@ -30,7 +30,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "random",
+            "source": "user",
             "dest": "meat",
             "conditions": "is_going_to_meat",
         },
