@@ -7,14 +7,12 @@ import random
 def read_txt(file_open):
     f = open(file_open, "r")
     s = f.readline()
+    s = s.split("\n")
     f.close()
-    return s
+    return s[0]
 
-def write_txt(file_open, s, para):	#0:append 1:write
-    if para == 0:
-        f = open(file_open, "a")
-    else:
-        f = open(file_open, "w")
+def write_txt(file_open, s):
+    f = open(file_open, "w")
     f.write(s)
     f.close()
 
@@ -86,13 +84,13 @@ class TocMachine(GraphMachine):
     def is_going_to_add(self, event):
         text = event.message.text
         t = text.split(" ", 1)
-        write_txt("change.txt", t[1], 1)
+        write_txt("change.txt", t[1])
         return t[0].lower() == "新增"
 
     def is_going_to_delete(self, event):
         text = event.message.text
         t = text.split(" ", 1)
-        write_txt("change.txt", t[1], 1)
+        write_txt("change.txt", t[1])
         return t[0].lower() == "刪除"
 
     # on_enter_state
@@ -175,7 +173,9 @@ class TocMachine(GraphMachine):
             reply = "格式錯誤\n結束新增\刪除請輸入\"結束\""
         else:
             if check(t_name, t[1]):
-                write_txt(t_name, " "+t[1], 0)
+                read = read_txt(t_name)
+                read = read + " " + t[1]
+                write_txt(t_name, read)
                 reply = t[1] + " 新增成功\n結束新增\刪除請輸入\"結束\""
             else:
                 reply = "該品項已經存在\n結束新增\刪除請輸入\"結束\""
