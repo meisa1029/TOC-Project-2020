@@ -2,11 +2,6 @@ from transitions.extensions import GraphMachine
 
 from utils import send_text_message
 
-import random
-
-
-meat = ["雞肉", "牛肉", "豬肉"]
-meat_cnt = 3
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
@@ -24,7 +19,7 @@ class TocMachine(GraphMachine):
         print("I'm entering state1")
 
         reply_token = event.reply_token
-        send_text_message(reply_token, meat[random.randint(0, meat_cnt--)])
+        send_text_message(reply_token, "Trigger state1")
         self.go_back()
 
     def on_exit_state1(self):
