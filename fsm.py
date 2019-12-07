@@ -54,7 +54,7 @@ class TocMachine(GraphMachine):
         text = event.message.text
         state = read_txt("state")
         return (state == "1" and text.lower() == "肉")
-        #return text.lower() == "肉"
+        return text.lower() == "肉"
 
     def is_going_to_veg(self, event):
         text = event.message.text
