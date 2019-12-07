@@ -102,7 +102,7 @@ class TocMachine(GraphMachine):
     def on_enter_meat(self, event):
         print("choosing meat")
         reply_token = event.reply_token
-        read = read_txt(meat.txt)
+        read = read_txt("meat.txt")
         meats = read.split(" ")
         meat_cnt = len(meats)
         reply = meats[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
@@ -112,7 +112,7 @@ class TocMachine(GraphMachine):
     def on_enter_veg(self, event):
         print("choosing vegetable")
         reply_token = event.reply_token
-        read = read_txt(veg.txt)
+        read = read_txt("veg.txt")
         vegs = read.split(" ")
         veg_cnt = len(vegs)
         reply = vegs[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
@@ -122,7 +122,7 @@ class TocMachine(GraphMachine):
     def on_enter_side_dish(self, event):
         print("choosing side dish")
         reply_token = event.reply_token
-        read = read_txt(side_dish.txt)
+        read = read_txt("side_dish.txt")
         side_dishes = read.split(" ")
         side_cnt = len(side_dishes)
         reply = side_dishes[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
@@ -132,7 +132,7 @@ class TocMachine(GraphMachine):
     def on_enter_soup(self, event):
         print("choosing soup")
         reply_token = event.reply_token
-        read = read_txt(soup.txt)
+        read = read_txt("soup.txt")
         soups = read.split(" ")
         soup_cnt = len(soups)
         reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
@@ -142,7 +142,7 @@ class TocMachine(GraphMachine):
     def on_enter_other(self, event):
         print("choosing other")
         reply_token = event.reply_token
-        read = read_txt(other.txt)
+        read = read_txt("other.txt")
         others = read.split(" ")
         other_cnt = len(others)
         reply = others[random.randint(0, other_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
