@@ -64,16 +64,16 @@ class TocMachine(GraphMachine):
 
     def on_enter_menu(self, event):
         print("menu")
+        state = 0
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入刪除模式")
-        state = 0
         self.go_back()
 
     def on_enter_random(self, event):
         print("random")
-        reply_token = event.reply_token
-        send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、菜、配菜、湯、其它")
         state = 1
+        reply_token = event.reply_token
+        send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、菜、配菜、湯、其它"+state)
         self.go_back()
 
     def on_enter_meat(self, event):
