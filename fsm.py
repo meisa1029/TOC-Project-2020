@@ -138,24 +138,24 @@ class TocMachine(GraphMachine):
 
     # on_exit
 
-    def on_exit_menu(self):
-        print("Leaving menu")
+#    def on_exit_menu(self):
+#        print("Leaving menu")
 
 #    def on_exit_random(self):
 #        print("Leaving random")
 
-    def on_exit_meat(self):
-        print("Leaving meat")
+#    def on_exit_meat(self):
+#       print("Leaving meat")
 
-    def on_exit_veg(self):
-        print("Leaving vegetable")
+#    def on_exit_veg(self):
+#        print("Leaving vegetable")
 
-    def on_exit_side_dish(self):
-        print("Leaving side dish")
+#    def on_exit_side_dish(self):
+#        print("Leaving side dish")
 
-    def on_exit_soup(self):
-        print("leaveing soup")
+#    def on_exit_soup(self):
+#        print("leaveing soup")
 
-    def on_exit_other(self):
-        print("Leaving other")
+#    def on_exit_other(self):
+#        print("Leaving other")
 
