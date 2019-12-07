@@ -19,7 +19,7 @@ soup_cnt = 3
 other_cnt = 5
 
 t = []
-state = -1
+state = 1
 
 def read_txt(file_open):
     if file_open == "state":
@@ -28,10 +28,10 @@ def read_txt(file_open):
         f.close()
         return s
 
-def write_txt(file_open):
+def write_txt(file_open, s):
     if file_open == "state":
         f = open("state.txt", "w")
-        f.write(state)
+        f.write(s)
         f.close()
 
 class TocMachine(GraphMachine):
@@ -93,8 +93,8 @@ class TocMachine(GraphMachine):
 
     def on_enter_random(self, event):
         print("random")
-        state = 1
-        write_txt("state")
+        #state = 1
+        write_txt("state", 1)
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、菜、配菜、湯、其它")
         self.go_back()
