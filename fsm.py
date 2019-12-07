@@ -112,7 +112,7 @@ class TocMachine(GraphMachine):
     def on_enter_change(self, event):
         print("change")
         reply_token = event.reply_token
-        send_text_message(reply_token, "請輸入：\"新增\"/\"刪除\" 類別 品名\nex: 新增 肉 雞肉/刪除 湯 蘿蔔湯\n類別：肉、青菜、配菜、湯、其他")
+        send_text_message(reply_token, "請輸入：\"新增\"/\"刪除\" 類別 品名\nex: 新增 肉 雞肉\n    刪除 湯 蘿蔔湯\n類別：肉、青菜、配菜、湯、其他")
         #self.go_back()
 
     def on_enter_meat(self, event):
@@ -175,19 +175,19 @@ class TocMachine(GraphMachine):
             reply = "格式錯誤"
         else:
             if check(t_name, t[1]):
-                write(t_name, " "+t[1], 0)
+                write_txt(t_name, " "+t[1], 0)
                 reply = t[1] + " 新增成功"
             else:
                 reply = "該品項已經存在"
         send_text_message(reply_token, reply)
-        self.go_back()
+#        self.go_back()
 
     def on_enter_delete(self, event):
         print("delete")
         reply_token = event.reply_token
         reply = t[2] + " 新增成功"
         send_text_message(reply_token, reply)
-        self.go_back()
+#        self.go_back()
     # on_exit
 
 #    def on_exit_menu(self):
