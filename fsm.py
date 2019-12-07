@@ -45,7 +45,7 @@ class TocMachine(GraphMachine):
 #        if state == -1:
 #            return True
 #        else:        
-            return (text.lower() == "開始" or text.lower() == "結束")
+        return (text.lower() == "開始" or text.lower() == "結束")
 
     def is_going_to_random(self, event):
         text = event.message.text
