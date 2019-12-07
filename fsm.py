@@ -40,7 +40,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_menu(self, event):
         text = event.message.text
-        state = read_txt("state")
+#        state = read_txt("state")
 #        if state == -1:
 #            return True
 #        else:        
