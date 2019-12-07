@@ -195,10 +195,11 @@ class TocMachine(GraphMachine):
                 read = read_txt(t_name)
                 r = read.split(" ")
                 r.remove(t[1])
-                write = ""
+                w = ""
                 for i in range(len(r)):
-                    write = write + r[i]
-                write_txt(t_name, write)
+                    w = w + " " + r[i]
+                write = w.split(" ", 1)
+                write_txt(t_name, write[1])
                 reply = t[1] + " 新增成功\n結束新增\刪除請輸入\"結束\""
             else:
                 reply = "該品項已經存在\n結束新增\刪除請輸入\"結束\""
