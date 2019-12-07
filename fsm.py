@@ -19,7 +19,6 @@ soup_cnt = 3
 other_cnt = 5
 
 t = []
-state = "1"
 
 def read_txt(file_open):
     if file_open == "state":
@@ -43,7 +42,7 @@ class TocMachine(GraphMachine):
     def is_going_to_menu(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state != 0 and text.lower() == "結束")
+        return (state != "0" and text.lower() == "結束")
 
     def is_going_to_random(self, event):
         text = event.message.text
@@ -52,29 +51,28 @@ class TocMachine(GraphMachine):
     
     def is_going_to_meat(self, event):
         text = event.message.text
-        st = read_txt("state")
-        #return (state == "1" and text.lower() == "肉")
-        return text.lower() == "肉"
+        state = read_txt("state")
+        return (state == "1" and text.lower() == "肉")
 
     def is_going_to_veg(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state == 1 and text.lower() == "菜")
+        return (state == "1" and text.lower() == "菜")
 
     def is_going_to_side_dish(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state == 1 and text.lower() == "配菜")
+        return (state == "1" and text.lower() == "配菜")
 
     def is_going_to_soup(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state == 1 and text.lower() == "湯")
+        return (state == "1" and text.lower() == "湯")
 
     def is_going_to_other(self, event):
         text = event.message.text
         state = read_txt("state")
-        return (state == 1 and (text.lower() == "其它" or text.lower() == "其他"))
+        return (state == "1" and (text.lower() == "其它" or text.lower() == "其他"))
 
     def is_going_to_add(self, event):
         text = event.message.text
@@ -85,8 +83,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_menu(self, event):
         print("menu")
-        state = 0
-        write_txt("state")
+        write_txt("state", "0")
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入刪除模式")
         self.go_back()
@@ -94,7 +91,7 @@ class TocMachine(GraphMachine):
     def on_enter_random(self, event):
         print("random")
         #state = 1
-        write_txt("state", 1)
+        write_txt("state", "1")
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、菜、配菜、湯、其它")
         self.go_back()
@@ -103,7 +100,7 @@ class TocMachine(GraphMachine):
         print("choosing meat")
         reply_token = event.reply_token
         #st = read_txt("state")
-        reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  如：菜、肉\n結束選擇請輸入\"結束\"\n"+st
+        reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  如：菜、肉\n結束選擇請輸入\"結束\"\n"
         send_text_message(reply_token, reply)
         self.go_back()
 
