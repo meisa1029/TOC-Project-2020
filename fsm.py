@@ -52,7 +52,7 @@ class TocMachine(GraphMachine):
     
     def is_going_to_meat(self, event):
         text = event.message.text
-        state = read_txt("state")
+        st = read_txt("state")
         #return (state == "1" and text.lower() == "肉")
         return text.lower() == "肉"
 
@@ -102,7 +102,8 @@ class TocMachine(GraphMachine):
     def on_enter_meat(self, event):
         print("choosing meat")
         reply_token = event.reply_token
-        reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  如：菜、肉\n結束選擇請輸入\"結束\"\n"+state
+        st = read_txt("state")
+        reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  如：菜、肉\n結束選擇請輸入\"結束\"\n"+st
         send_text_message(reply_token, reply)
         self.go_back()
 
