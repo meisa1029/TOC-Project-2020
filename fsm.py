@@ -86,7 +86,7 @@ class TocMachine(GraphMachine):
         write_txt("state", "0")
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入刪除模式")
-        self.go_back()
+       # self.go_back()
 
     def on_enter_random(self, event):
         print("random")
@@ -102,7 +102,7 @@ class TocMachine(GraphMachine):
         #st = read_txt("state")
         reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  如：菜、肉\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
-        self.go_back()
+       # self.go_back()
 
     def on_enter_veg(self, event):
         print("choosing vegetable")

@@ -18,19 +18,19 @@ machine = TocMachine(
     transitions=[
         {
             "trigger": "advance",
-            "source": "user",
+            "source": "meat",
             "dest": "menu",
             "conditions": "is_going_to_menu",
         },
         {
             "trigger": "advance",
-            "source": "user",
+            "source": ["user", "menu"]
             "dest": "random",
             "conditions": "is_going_to_random",
         },
         {
             "trigger": "advance",
-            "source": "random",
+            "source": ["random", "meat"],
             "dest": "meat",
             "conditions": "is_going_to_meat",
         },
