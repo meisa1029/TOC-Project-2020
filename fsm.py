@@ -28,7 +28,7 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "菜"
 
-    def is_going_to_try(self, event):
+    def is_going_to_soup(self, event):
         text = event.message.text
         return text.lower() == "湯"
 
@@ -50,11 +50,11 @@ class TocMachine(GraphMachine):
         send_text_message(reply_token, soup[random.randint(0, soup_cnt-1)])
         self.go_back()
 
-    def on_exit_state1(self):
+    def on_exit_meat(self):
         print("Leaving meat")
 
-    def on_exit_state2(self):
+    def on_exit_veg(self):
         print("Leaving vegetable")
 
-    def on_exit_try(self):
+    def on_exit_soup(self):
         print("leaveing soup")
