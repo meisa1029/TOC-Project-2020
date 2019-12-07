@@ -5,27 +5,26 @@ from utils import send_text_message
 import random
 
 
-meat = ["三杯雞", "牛肉", "炒豬肉片", "鮭魚", "比目魚", "香腸"]
-veg = ["炒高麗菜", "水煮青花椰菜", "地瓜葉", "空心菜"]
-side_dish = ["玉米炒蛋", "蔥蛋", "杏鮑菇", "洋蔥炒蛋", "馬鈴薯燉肉"] 
-soup = ["蛤蜊湯", "大黃瓜湯", "蘿蔔湯"]
-other = ["部隊鍋", "火鍋", "大阪燒", "櫻花蝦炒飯", "炒泡麵"]
+#meat = ["三杯雞", "牛肉", "炒豬肉片", "鮭魚", "比目魚", "香腸"]
+#veg = ["炒高麗菜", "水煮青花椰菜", "地瓜葉", "空心菜"]
+#side_dish = ["玉米炒蛋", "蔥蛋", "杏鮑菇", "洋蔥炒蛋", "馬鈴薯燉肉"] 
+#soup = ["蛤蜊湯", "大黃瓜湯", "蘿蔔湯"]
+#other = ["部隊鍋", "火鍋", "大阪燒", "櫻花蝦炒飯", "炒泡麵"]
 #to_do_list = []
 
-meat_cnt = 6
-veg_cnt = 4
-side_cnt = 5
-soup_cnt = 3
-other_cnt = 5
+#meat_cnt = 6
+#veg_cnt = 4
+#side_cnt = 5
+#soup_cnt = 3
+#other_cnt = 5
 
 t = []
 
 def read_txt(file_open):
-    if file_open == "state":
-        f = open("state.txt", "r")
-        s = f.read(1)
-        f.close()
-        return s
+    f = open(file_open, "r")
+    s = f.readline()
+    f.close()
+    return s
 
 def write_txt(file_open, s):
     if file_open == "state":
@@ -103,6 +102,9 @@ class TocMachine(GraphMachine):
     def on_enter_meat(self, event):
         print("choosing meat")
         reply_token = event.reply_token
+        read = read_txt(meat.txt)
+        meat = read.split(" ")
+        meat_cnt = len(meat)
         reply = meat[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
 #        self.go_back()
@@ -110,6 +112,9 @@ class TocMachine(GraphMachine):
     def on_enter_veg(self, event):
         print("choosing vegetable")
         reply_token = event.reply_token
+        read = read_txt(veg.txt)
+        veg = read.split(" ")
+        veg_cnt = len(veg)
         reply = veg[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
 #        self.go_back()
@@ -117,6 +122,9 @@ class TocMachine(GraphMachine):
     def on_enter_side_dish(self, event):
         print("choosing side dish")
         reply_token = event.reply_token
+        read = read_txt(side_dish.txt)
+        side_dish = read.split(" ")
+        side_cnt = len(side_dish)
         reply = side_dish[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
 #       self.go_back()
@@ -124,6 +132,9 @@ class TocMachine(GraphMachine):
     def on_enter_soup(self, event):
         print("choosing soup")
         reply_token = event.reply_token
+        read = read_txt(soup.txt)
+        soup = read.split(" ")
+        soup_cnt = len(soup)
         reply = soup[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
 #        self.go_back()
@@ -131,7 +142,10 @@ class TocMachine(GraphMachine):
     def on_enter_other(self, event):
         print("choosing other")
         reply_token = event.reply_token
-        reply = other[random.randint(0, other-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        read = read_txt(other.txt)
+        other = read.split(" ")
+        other_cnt = len(other)
+        reply = other[random.randint(0, other_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
 #        self.go_back()
 
