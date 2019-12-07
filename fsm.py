@@ -19,7 +19,7 @@ soup_cnt = 3
 other_cnt = 5
 
 t = []
-state = 1
+state = "1"
 
 def read_txt(file_open):
     if file_open == "state":
