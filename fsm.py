@@ -57,7 +57,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_add(self, event):
         text = event.message.text
-        t = split(" ")
+        t = text.split(" ")
         return t[0].lower() == "新增"
 
     # on_enter_state
