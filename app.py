@@ -18,7 +18,7 @@ machine = TocMachine(
     transitions=[
         {
             "trigger": "advance",
-            "source": ["user", "meat"],
+            "source": ["user", "meat", "veg", "side_dish", "soup", "other", "add"],
             "dest": "menu",
             "conditions": "is_going_to_menu",
         },
@@ -30,43 +30,43 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "random",
+            "source": "menu",
+            "dest": "change",
+            "conditions": "is_going_to_change",
+        },
+        {
+            "trigger": "advance",
+            "source": "radom",
             "dest": "meat",
             "conditions": "is_going_to_meat",
         },
         {
             "trigger": "advance",
-            "source": "user",
-            "dest": "random",
-            "conditions": "is_going_to_random",
-        },
-        {
-            "trigger": "advance",
-            "source": "user",
+            "source": "random",
             "dest": "veg",
             "conditions": "is_going_to_veg",
         },
         {
             "trigger": "advance",
-            "source": "user",
+            "source": "random",
             "dest": "side_dish",
             "conditions": "is_going_to_side_dish",
         },
 	{
 	    "trigger": "advance",
-	    "source": "user",
+	    "source": "random",
 	    "dest": "soup",
 	    "conditions": "is_going_to_soup"
 	},
         {
             "trigger": "advance",
-            "source": "user",
+            "source": "random",
             "dest": "other",
             "conditions": "is_going_to_other",
         },
         {
             "trigger": "advance",
-            "source": "user",
+            "source": "change",
             "dest": "add",
             "conditions": "is_going_to_add",
         },
