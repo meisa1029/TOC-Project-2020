@@ -14,7 +14,7 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "menu", "random", "change", "meat", "veg", "side_dish", "soup", "other", "add"],
+    states=["user", "menu", "random", "change", "meat", "veg", "side_dish", "soup", "other", "add", "delete"],
     transitions=[
         {
             "trigger": "advance",
@@ -66,9 +66,15 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "change",
+            "source": ["change", "add", "delete"],
             "dest": "add",
             "conditions": "is_going_to_add",
+        },
+        {
+            "trigger": "advance",
+            "source": ["change", "add", "delete"],
+            "dest": "delete",
+            "conditions": "is_going_to_delete",
         },
         {
             "trigger": "go_back",
