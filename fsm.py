@@ -112,28 +112,28 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         reply = veg[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
-        self.go_back()
+#        self.go_back()
 
     def on_enter_side_dish(self, event):
         print("choosing side dish")
         reply_token = event.reply_token
         reply = side_dish[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
-        self.go_back()
+#       self.go_back()
 
     def on_enter_soup(self, event):
         print("choosing soup")
         reply_token = event.reply_token
         reply = soup[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
-        self.go_back()
+#        self.go_back()
 
     def on_enter_other(self, event):
         print("choosing other")
         reply_token = event.reply_token
         reply = other[random.randint(0, other-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         send_text_message(reply_token, reply)
-        self.go_back()
+#        self.go_back()
 
     def on_enter_add(self, event):
         print("add")
