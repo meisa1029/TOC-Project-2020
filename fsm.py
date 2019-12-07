@@ -36,7 +36,7 @@ def check(t_name, s):
     index = -1
     for i in range(len(r)):
         if r[i] == s:
-            return index
+            return i
     return index
 
 class TocMachine(GraphMachine):
