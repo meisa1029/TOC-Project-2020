@@ -73,7 +73,7 @@ class TocMachine(GraphMachine):
         print("random")
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、菜、配菜、湯、其它")
-	state = 1
+        state = 1
         self.go_back()
 
     def on_enter_meat(self, event):
