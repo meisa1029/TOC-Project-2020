@@ -104,10 +104,10 @@ class TocMachine(GraphMachine):
     def on_enter_random(self, event):
         print("random")
         reply_token = event.reply_token
-        text = ["幫你選擇菜單", "選擇類別"]
-        buttons = ["肉", "菜", "配菜", "湯", "其他"]
-        send_button_message(reply_token, text, buttons)
-        #send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、青菜、配菜、湯、其它")
+        #text = ["請輸入類別", "類別：肉、菜、配菜、湯、其他"]
+        #buttons = ["肉", "菜", "配菜", "湯", "其他"]
+        #send_button_message(reply_token, text, buttons)
+        send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、青菜、配菜、湯、其它")
         
 
     def on_enter_change(self, event):
