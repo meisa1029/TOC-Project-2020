@@ -97,7 +97,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
         text = ["主選單", "煮什麼：幫你選擇菜單\n新增/刪除：新增刪除菜單"]
-        buttons = ["煮什麼", "新增刪除"] 
+        buttons = ["煮什麼", "新增/刪除"] 
         send_button_message(reply_token, text, buttons)
        # self.go_back()
 
