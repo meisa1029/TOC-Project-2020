@@ -96,7 +96,7 @@ class TocMachine(GraphMachine):
         print("menu")
         reply_token = event.reply_token
         #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
-        text = ["主選單", "煮什麼：幫你選擇菜單", "新增/刪除：新增刪除菜單"]
+        text = ["主選單", "煮什麼：幫你選擇菜單\n新增/刪除：新增刪除菜單"]
         buttons = ["煮什麼", "新增刪除"] 
         send_button_message(reply_token, text, buttons)
        # self.go_back()
@@ -104,8 +104,11 @@ class TocMachine(GraphMachine):
     def on_enter_random(self, event):
         print("random")
         reply_token = event.reply_token
-        send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、青菜、配菜、湯、其它")
-        #self.go_back()
+        text = ["幫你選擇菜單", "選擇類別"]
+        buttons = ["肉", "菜", "配菜", "湯", "其他"]
+        send_button_message(reply_token, text, buttons)
+        #send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、青菜、配菜、湯、其它")
+        
 
     def on_enter_change(self, event):
         print("change")
@@ -119,9 +122,11 @@ class TocMachine(GraphMachine):
         read = read_txt("meat.txt")
         meats = read.split(" ")
         meat_cnt = len(meats)
-        reply = meats[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        send_text_message(reply_token, reply)
-#        self.go_back()
+        text = [meats[random.randint(0, meat_cnt-1)], "繼續選擇類別或結束"]
+        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        send_button_message(reply_token, text, buttons)
+        #reply = meats[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        #send_text_message(reply_token, reply)
 
     def on_enter_veg(self, event):
         print("choosing vegetable")
@@ -129,8 +134,10 @@ class TocMachine(GraphMachine):
         read = read_txt("veg.txt")
         vegs = read.split(" ")
         veg_cnt = len(vegs)
-        reply = vegs[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        send_text_message(reply_token, reply)
+        text = [vegs[random.randint(0, veg_cnt-1)], "繼續選擇類別或結束"]
+        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        send_button_message(reply_token, text, buttons)
+        #reply = vegs[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
 #        self.go_back()
 
     def on_enter_side_dish(self, event):
@@ -139,9 +146,11 @@ class TocMachine(GraphMachine):
         read = read_txt("side_dish.txt")
         side_dishes = read.split(" ")
         side_cnt = len(side_dishes)
-        reply = side_dishes[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        send_text_message(reply_token, reply)
-#       self.go_back()
+        text = [side_dishes[random.randint(0, side_cnt-1)], "繼續選擇類別或結束"]
+        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        send_button_message(reply_token, text, buttons)
+        #reply = side_dishes[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        #send_text_message(reply_token, reply)
 
     def on_enter_soup(self, event):
         print("choosing soup")
@@ -149,9 +158,11 @@ class TocMachine(GraphMachine):
         read = read_txt("soup.txt")
         soups = read.split(" ")
         soup_cnt = len(soups)
-        reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        send_text_message(reply_token, reply)
-#        self.go_back()
+        text = [soups[random.randint(0, soup_cnt-1)], "繼續選擇類別或結束"]
+        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        send_button_message(reply_token, text, buttons)
+        #reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        #send_text_message(reply_token, reply)
 
     def on_enter_other(self, event):
         print("choosing other")
@@ -159,9 +170,11 @@ class TocMachine(GraphMachine):
         read = read_txt("other.txt")
         others = read.split(" ")
         other_cnt = len(others)
-        reply = others[random.randint(0, other_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        send_text_message(reply_token, reply)
-#        self.go_back()
+        text = [others[random.randint(0, other_cnt-1)], "繼續選擇類別或結束"]
+        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        send_button_message(reply_token, text, buttons)
+        #reply = others[random.randint(0, other_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        #send_text_message(reply_token, reply)
 
     def on_enter_add(self, event):
         print("add")
