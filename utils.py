@@ -15,8 +15,8 @@ def send_text_message(reply_token, text):
 
 def send_button_message(reply_token, text, buttons):
     action = []
-    for i in buttons:
-         action.append(MessageTemplateAction(label = buttons[i], text = buttons[i]))
+    for b in buttons:
+         action.append(MessageTemplateAction(label = b, text = b))
     menu_template = TemplateSendMessage(
         alt_text = text[0],
         template = ButtonsTemplate(
