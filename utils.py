@@ -14,7 +14,6 @@ def send_text_message(reply_token, text):
     return "OK"
 
 def send_button_message(reply_token, text):
-    line_bot_api = LineBotApi(channel_access_token)
     menu_template = TemplateSendMessage(
         alt_Text= "Buttons Template",
         template = ButtonsTemplate(
@@ -32,6 +31,7 @@ def send_button_message(reply_token, text):
             ]
         )
     )
+    line_bot_api = LineBotApi(channel_access_token)
     line_bot_api.reply_message(reply_token, menu_template)
     return "OK"
 """

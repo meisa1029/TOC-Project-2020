@@ -40,10 +40,6 @@ def check(t_name, s):
             return i
     return index
 
-#menu_template = TemplateSendMessage(alt_Text= "this", template = ButtonsTemplate(text =  "1/2", actions = [MessageTemplateAction(label = "1", text = "1"), MessageTemplateAction(label = "2", text = "2")]))
-#menu_template =alt_Text= 'this', template = ButtonsTemplate(text =  '1/2', actions = [MessageTemplateAction(label = '1', text = '1'), MessageTemplateAction(label = '2', text = '2')])
-
-
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
@@ -52,10 +48,6 @@ class TocMachine(GraphMachine):
 
     def is_going_to_menu(self, event):
         text = event.message.text
-#        state = read_txt("state")
-#        if state == -1:
-#            return True
-#        else:        
         return (text.lower() == "開始" or text.lower() == "結束")
 
     def is_going_to_random(self, event):
@@ -103,8 +95,8 @@ class TocMachine(GraphMachine):
     def on_enter_menu(self, event):
         print("menu")
         reply_token = event.reply_token
-        send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
-        #send_button_message(reply_token, "1")
+        #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
+        send_button_message(reply_token, "1")
        # self.go_back()
 
     def on_enter_random(self, event):
