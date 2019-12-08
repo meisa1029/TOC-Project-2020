@@ -16,7 +16,7 @@ def send_text_message(reply_token, text):
 def send_button_message(reply_token, text):
     line_bot_api = LineBotApi(channel_access_token)
     menu_template = TemplateSendMessage(
-        alt_Text= "button template",
+        alt_Text= "Buttons Template",
         template = ButtonsTemplate(
             title = "menu",
             text =  text,
