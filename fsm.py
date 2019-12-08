@@ -39,7 +39,7 @@ def check(t_name, s):
             return i
     return index
 
-menu_template = TemplateSendMessage(alt_Text: "this", template = ButtonsTemplate(text =  "1/2", actions = [{type = "postback", label = "1", data = "1"}, {type = "postback", label = "2", data = "2"}]))
+menu_template = TemplateSendMessage(alt_Text: "this", template = ButtonsTemplate(text =  "1/2", actions = [MessageTemplateAction(label = "1", text = "1"), MessageTemplateAction(label = "2", text = "2")]))
 
 
 class TocMachine(GraphMachine):
