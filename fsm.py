@@ -52,11 +52,11 @@ class TocMachine(GraphMachine):
 
     def is_going_to_random(self, event):
         text = event.message.text
-        return text.lower() == "1"
+        return text.lower() == "煮什麼"
 
     def is_going_to_change(self, event):
         text = event.message.text
-        return text.lower() == "2"
+        return text.lower() == "新增/刪除"
 
     def is_going_to_meat(self, event):
         text = event.message.text
@@ -96,7 +96,9 @@ class TocMachine(GraphMachine):
         print("menu")
         reply_token = event.reply_token
         #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
-        send_button_message(reply_token, "1")
+        test = ["主選單", "煮什麼：幫你選擇菜單", "新增/刪除：新增刪除菜單"]
+        buttons = ["煮什麼", "新增刪除"] 
+        send_button_message(reply_token, text, buttons)
        # self.go_back()
 
     def on_enter_random(self, event):

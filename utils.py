@@ -13,22 +13,16 @@ def send_text_message(reply_token, text):
 
     return "OK"
 
-def send_button_message(reply_token, text):
+def send_button_message(reply_token, text, buttons):
+    action = []
+    for i in buttons:
+         action.append(MessageTemplateAction(label = buttons[i], text = buttons[i]))
     menu_template = TemplateSendMessage(
-        alt_text = "Buttons Template",
+        alt_text = text[0],
         template = ButtonsTemplate(
-            title = "menu",
-            text =  text,
-            actions = [
-                MessageTemplateAction(
-                    label = "1",
-                    text = "1"
-                ),
-                MessageTemplateAction(
-                    label = "2",
-                    text = "2"
-                )
-            ]
+            title = text[0],
+            text =  text[1],
+            actions = action
         )
     )
     line_bot_api = LineBotApi(channel_access_token)
