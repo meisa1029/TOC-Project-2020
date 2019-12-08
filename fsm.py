@@ -102,8 +102,8 @@ class TocMachine(GraphMachine):
     def on_enter_menu(self, event):
         print("menu")
         reply_token = event.reply_token
-        send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
-        #send_text_message(reply_token, menu_template)
+        #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
+        send_button_message(reply_token, menu_template)
        # self.go_back()
 
     def on_enter_random(self, event):
