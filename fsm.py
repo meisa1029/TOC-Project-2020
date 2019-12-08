@@ -39,6 +39,7 @@ def check(t_name, s):
             return i
     return index
 
+menu_template = {type: "template", altText: "this", template:{type: "buttons", text: "1/2", actions:[{type: "postback", label:"1", data:"1"},{type: "postback", label:"2", data:"2"}]}}
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
@@ -98,7 +99,8 @@ class TocMachine(GraphMachine):
     def on_enter_menu(self, event):
         print("menu")
         reply_token = event.reply_token
-        send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
+        #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
+        send_text_message(reply_token, menu_template)
        # self.go_back()
 
     def on_enter_random(self, event):
