@@ -41,7 +41,7 @@ def check(t_name, s):
     return index
 
 #menu_template = TemplateSendMessage(alt_Text= "this", template = ButtonsTemplate(text =  "1/2", actions = [MessageTemplateAction(label = "1", text = "1"), MessageTemplateAction(label = "2", text = "2")]))
-menu_template =alt_Text= 'this', template = ButtonsTemplate(text =  '1/2', actions = [MessageTemplateAction(label = '1', text = '1'), MessageTemplateAction(label = '2', text = '2')])
+#menu_template =alt_Text= 'this', template = ButtonsTemplate(text =  '1/2', actions = [MessageTemplateAction(label = '1', text = '1'), MessageTemplateAction(label = '2', text = '2')])
 
 
 class TocMachine(GraphMachine):
@@ -104,7 +104,7 @@ class TocMachine(GraphMachine):
         print("menu")
         reply_token = event.reply_token
         #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
-        send_button_message(reply_token, menu_template)
+        send_button_message(reply_token)
        # self.go_back()
 
     def on_enter_random(self, event):
