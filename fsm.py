@@ -122,8 +122,8 @@ class TocMachine(GraphMachine):
         read = read_txt("meat.txt")
         meats = read.split(" ")
         meat_cnt = len(meats)
-        text = [meats[random.randint(0, meat_cnt-1)], "繼續選擇類別或結束"]
-        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        text = [meats[random.randint(0, meat_cnt-1)], "繼續輸入類別或結束"]
+        buttons = ["結束"]
         send_button_message(reply_token, text, buttons)
         #reply = meats[random.randint(0, meat_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
         #send_text_message(reply_token, reply)
@@ -134,11 +134,11 @@ class TocMachine(GraphMachine):
         read = read_txt("veg.txt")
         vegs = read.split(" ")
         veg_cnt = len(vegs)
-        text = [vegs[random.randint(0, veg_cnt-1)], "繼續選擇類別或結束"]
-        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
-        send_button_message(reply_token, text, buttons)
-        #reply = vegs[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-#        self.go_back()
+        #text = [vegs[random.randint(0, veg_cnt-1)], "繼續選擇類別或結束"]
+        #buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        #send_button_message(reply_token, text, buttons)
+        reply = vegs[random.randint(0, veg_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        send_text_message(reply_token, reply)
 
     def on_enter_side_dish(self, event):
         print("choosing side dish")
@@ -146,11 +146,11 @@ class TocMachine(GraphMachine):
         read = read_txt("side_dish.txt")
         side_dishes = read.split(" ")
         side_cnt = len(side_dishes)
-        text = [side_dishes[random.randint(0, side_cnt-1)], "繼續選擇類別或結束"]
-        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
-        send_button_message(reply_token, text, buttons)
-        #reply = side_dishes[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        #send_text_message(reply_token, reply)
+        #text = [side_dishes[random.randint(0, side_cnt-1)], "繼續選擇類別或結束"]
+        #buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        #send_button_message(reply_token, text, buttons)
+        reply = side_dishes[random.randint(0, side_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        send_text_message(reply_token, reply)
 
     def on_enter_soup(self, event):
         print("choosing soup")
@@ -158,11 +158,11 @@ class TocMachine(GraphMachine):
         read = read_txt("soup.txt")
         soups = read.split(" ")
         soup_cnt = len(soups)
-        text = [soups[random.randint(0, soup_cnt-1)], "繼續選擇類別或結束"]
-        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
-        send_button_message(reply_token, text, buttons)
-        #reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        #send_text_message(reply_token, reply)
+        #text = [soups[random.randint(0, soup_cnt-1)], "繼續選擇類別或結束"]
+        #buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        #send_button_message(reply_token, text, buttons)
+        reply = soups[random.randint(0, soup_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        send_text_message(reply_token, reply)
 
     def on_enter_other(self, event):
         print("choosing other")
@@ -170,11 +170,11 @@ class TocMachine(GraphMachine):
         read = read_txt("other.txt")
         others = read.split(" ")
         other_cnt = len(others)
-        text = [others[random.randint(0, other_cnt-1)], "繼續選擇類別或結束"]
-        buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
-        send_button_message(reply_token, text, buttons)
-        #reply = others[random.randint(0, other_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
-        #send_text_message(reply_token, reply)
+        #text = [others[random.randint(0, other_cnt-1)], "繼續選擇類別或結束"]
+        #buttons = ["肉", "菜", "配菜", "湯", "其他", "結束"]
+        #send_button_message(reply_token, text, buttons)
+        reply = others[random.randint(0, other_cnt-1)] + "\n繼續選擇請輸入選擇類別  類別：肉、青菜、配菜、湯、其他\n結束選擇請輸入\"結束\""
+        send_text_message(reply_token, reply)
 
     def on_enter_add(self, event):
         print("add")
