@@ -39,7 +39,18 @@ def check(t_name, s):
             return i
     return index
 
-menu_template = {type: "template", altText: "this", template:{type: "buttons", text: "1/2", actions:[{type: "postback", label:"1", data:"1"},{type: "postback", label:"2", data:"2"}]}}
+menu_template = {
+    "type": "template",
+    "altText": "this",
+    "template":{
+        "type": "buttons",
+        "text": "1/2",
+        "actions":[
+            {"type": "postback", "label":"1", "data":"1"},
+            {"type": "postback", "label":"2", "data":"2"}
+        ]
+    }
+}
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
