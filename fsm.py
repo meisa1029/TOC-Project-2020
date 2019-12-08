@@ -110,7 +110,7 @@ class TocMachine(GraphMachine):
     def on_enter_change(self, event):
         print("change")
         reply_token = event.reply_token
-        send_text_message(reply_token, "請輸入：\"新增\"/\"刪除\" 類別 品名\nex: 新增 肉 雞肉\n     刪除 湯 蘿蔔湯\n類別：肉、青菜、配菜、湯、其他")
+        send_text_message(reply_token, "請輸入：\"新增\"/\"刪除\" 類別 品名\nex: 新增 肉 雞肉\n      刪除 湯 蘿蔔湯\n類別：肉、青菜、配菜、湯、其他")
 
     def on_enter_meat(self, event):
         print("choosing meat")
@@ -199,7 +199,7 @@ class TocMachine(GraphMachine):
         t = read.split(" ")
         t_name = get_t_name(t[0])
         if t_name == "0":
-            reply = "格式錯誤\n結束新增\刪除請輸入\"結束\""
+            reply = "格式錯誤\n"
         else:
             if check(t_name, t[1]) != -1:
                 read = read_txt(t_name)
@@ -210,12 +210,15 @@ class TocMachine(GraphMachine):
                     w = w + " " + r[i]
                 write = w.split(" ", 1)
                 write_txt(t_name, write[1])
-                reply = t[1] + " 新增成功\n結束新增\刪除請輸入\"結束\""
+                reply = t[1] + " 刪除成功\n"
             else:
-                reply = "該品項已經存在\n結束新增\刪除請輸入\"結束\""
-        send_text_message(reply_token, reply)
-#        self.go_back()
-    # on_exit
+                reply = "該品項不存在"
+        text = [reply, "繼續輸入或結束"]
+        buttons = ["結束"]
+        send_button_message(reply_token, text, buttons)
+        #send_text_message(reply_token, reply)
+    
+# on_exit
 
 #    def on_exit_menu(self):
 #        print("Leaving menu")
