@@ -15,7 +15,7 @@ def send_text_message(reply_token, text):
 
 def send_button_message(reply_token, text):
     menu_template = TemplateSendMessage(
-        altText = "Buttons Template",
+        alt_text = "Buttons Template",
         template = ButtonsTemplate(
             title = "menu",
             text =  text,
