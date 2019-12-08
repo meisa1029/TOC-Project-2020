@@ -188,7 +188,7 @@ class TocMachine(GraphMachine):
             else:
                 reply = "該品項已經存在"
         text = [reply, "繼續輸入或結束"]
-        button = ["結束"]
+        buttons = ["結束"]
         send_button_message(reply_token, text, buttons)
         #send_text_message(reply_token, reply)
 
