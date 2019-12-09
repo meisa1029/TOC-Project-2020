@@ -60,7 +60,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_list(self, event):
         text = event.message.text
-        return text.lower() == "清單"
+        return text.lower() == "列清單"
 
     def is_going_to_meat(self, event):
         text = event.message.text
@@ -255,8 +255,8 @@ class TocMachine(GraphMachine):
             reply = ""
             num = len(l) - 1
             for i in range(num):
-                reply = reply + food[i] + "\n"
-            reply = reply + food[num] 
+                reply = reply + l[i] + "\n"
+            reply = reply + l[num] 
         text = [reply, "請繼續輸入類別"]
         buttons = ["結束"]
         send_button_message(reply_token, text, buttons)
