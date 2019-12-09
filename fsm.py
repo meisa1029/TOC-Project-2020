@@ -125,7 +125,7 @@ class TocMachine(GraphMachine):
     def on_enter_change(self, event):
         print("change")
         reply_token = event.reply_token
-        text = ["新增/刪除", "輸入：\"新增\"/\"刪除\" 類別 品名ex:新增 肉 三杯雞\n   刪除 湯 蘿蔔湯\n類別: 肉、青菜、配菜、湯、其它"]
+        text = ["新增/刪除", "輸入：\"新增\"/\"刪除\" 類別 品名\nex:新增 肉 三杯雞\n   刪除 湯 蘿蔔湯\n類別: 肉、青菜、配菜、湯、其它"]
         buttons = ["結束"]
         send_button_message(reply_token, text, buttons)
 
@@ -248,15 +248,16 @@ class TocMachine(GraphMachine):
         read = read_txt("change.txt")
         t_name = get_t_name(read)
         if t_name == "0":
-            reply = "格式錯誤"
+            title = "格式錯誤"
+            reply = ""
         else:
+            title = "清單"
             read = read_txt(t_name)
             l = read.split(" ")
             reply = ""
-            num = len(l) - 1
-            for i in range(num):
-                reply = reply + l[i] + "\n"
-            reply = reply + l[num] 
-        text = [reply, "請繼續輸入類別"]
+            for food in l:
+                reply = reply + food + "\n"
+        reply = reply + "\n請繼續輸入類別"
+        text = [title, reply]
         buttons = ["結束"]
         send_button_message(reply_token, text, buttons)
