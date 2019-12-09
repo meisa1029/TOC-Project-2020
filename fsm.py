@@ -58,6 +58,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "新增/刪除"
 
+    def is_going_to_list(self, event):
+        text = event.message.text
+        return text.lower() == "清單"
+
     def is_going_to_meat(self, event):
         text = event.message.text
         return text.lower() == "肉"
@@ -90,6 +94,15 @@ class TocMachine(GraphMachine):
         write_txt("change.txt", t[1])
         return t[0].lower() == "刪除"
 
+    def is_going_to_list_food(self, event):
+        text = event.message.text
+        #return (t[0].lower() == "肉" or t[0].lower() == "青菜" or t[0].lower() == "配菜" or t[0].lower() == "湯" or t[0].lower() == "其他" or t[0].lower() == "其他")
+        if text != "結束":
+            write_txt("change.txt", text)
+            return True
+        else:
+            return False
+
     # on_enter_state
 
     def on_enter_menu(self, event):
@@ -97,20 +110,31 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         #send_text_message(reply_token, "輸入\"1\": 進入選擇模式\n輸入\"2\": 進入輸入/刪除模式")
         text = ["主選單", "煮什麼：幫你選擇菜單\n新增/刪除：新增刪除菜單"]
-        buttons = ["煮什麼", "新增/刪除"] 
+        buttons = ["煮什麼", "新增/刪除", "列清單"] 
         send_button_message(reply_token, text, buttons)
        # self.go_back()
 
     def on_enter_random(self, event):
         print("random")
         reply_token = event.reply_token
-        send_text_message(reply_token, "輸入想選擇的類別\n類別: 肉、青菜、配菜、湯、其它")
+        text = ["煮什麼", "輸入想選擇的類別\n類別: 肉、青菜、配菜、湯、其它"]
+        buttons = ["結束"]
+        send_button_message(reply_token, text, buttons)
         
 
     def on_enter_change(self, event):
         print("change")
         reply_token = event.reply_token
-        send_text_message(reply_token, "請輸入：\"新增\"/\"刪除\" 類別 品名\nex: 新增 肉 雞肉\n      刪除 湯 蘿蔔湯\n類別：肉、青菜、配菜、湯、其他")
+        text = ["新增/刪除", "輸入：\"新增\"/\"刪除\" 類別 品名ex:新增 肉 三杯雞\n   刪除 湯 蘿蔔湯\n類別: 肉、青菜、配菜、湯、其它"]
+        buttons = ["結束"]
+        send_button_message(reply_token, text, buttons)
+
+    def on_enter_list(self, event):
+        print("change")
+        reply_token = event.reply_token
+        text = ["列清單", "請輸入類別\n類別：肉、青菜、配菜、湯、其他"]
+        buttons = ["結束"]
+        send_button_message(reply_token, text, buttons)
 
     def on_enter_meat(self, event):
         print("choosing meat")
@@ -217,27 +241,22 @@ class TocMachine(GraphMachine):
         buttons = ["結束"]
         send_button_message(reply_token, text, buttons)
         #send_text_message(reply_token, reply)
-    
-# on_exit
 
-#    def on_exit_menu(self):
-#        print("Leaving menu")
-
-#    def on_exit_random(self):
-#        print("Leaving random")
-
-#    def on_exit_meat(self):
-#       print("Leaving meat")
-
-#    def on_exit_veg(self):
-#        print("Leaving vegetable")
-
-#    def on_exit_side_dish(self):
-#        print("Leaving side dish")
-
-#    def on_exit_soup(self):
-#        print("leaveing soup")
-
-#    def on_exit_other(self):
-#        print("Leaving other")
-
+    def on_enter_list_food(self, event):
+        print("list food")
+        reply_token = event.reply_token
+        read = read_txt("change.txt")
+        t_name = get_t_name(read)
+        if t_name == "0":
+            reply = "格式錯誤"
+        else:
+            read = read_txt(t_name)
+            l = read.split(" ")
+            reply = ""
+            num = len(l) - 1
+            for i in range(num):
+                reply = reply + food[i] + "\n"
+            reply = reply + food[num] 
+        text = [reply, "請繼續輸入類別"]
+        buttons = ["結束"]
+        send_button_message(reply_token, text, buttons)
