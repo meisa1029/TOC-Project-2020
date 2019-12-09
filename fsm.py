@@ -246,5 +246,5 @@ class TocMachine(GraphMachine):
             reply = ""
             for food in l:
                 reply = reply + food + "\n"
-        reply = reply + "請繼續輸入類別或輸入\"結束\"\n類別: 肉、青菜、配菜、湯、其它"]
+        reply = reply + "請繼續輸入類別或輸入\"結束\"\n類別: 肉、青菜、配菜、湯、其它"
         send_text_message(reply_token, reply)
