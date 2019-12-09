@@ -257,7 +257,7 @@ class TocMachine(GraphMachine):
             reply = ""
             for food in l:
                 reply = reply + food + "\n"
-        reply = reply + "\n請繼續輸入類別"
+        reply = reply + "請繼續輸入類別"
         text = [title, reply]
         buttons = ["結束"]
         send_button_message(reply_token, text, buttons)

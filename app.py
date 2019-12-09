@@ -85,7 +85,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "list",
+            "source": ["list", "list_food"],
             "dest": "list_food",
             "conditions": "is_going_to_list_food",
         }
