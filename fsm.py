@@ -47,7 +47,6 @@ class TocMachine(GraphMachine):
     #is_going_state
 
     def is_going_to_menu(self, event):
-        check_state(event.source.userID);
         text = event.message.text
         return (text.lower() == "開始" or text.lower() == "結束")
 
