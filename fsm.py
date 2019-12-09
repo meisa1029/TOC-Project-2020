@@ -248,16 +248,18 @@ class TocMachine(GraphMachine):
         read = read_txt("change.txt")
         t_name = get_t_name(read)
         if t_name == "0":
-            title = "格式錯誤"
-            reply = ""
+            #title = "格式錯誤"
+            reply = "格式錯誤\n"
+            #reply = ""
         else:
-            title = "清單"
+            #title = "清單"
             read = read_txt(t_name)
             l = read.split(" ")
             reply = ""
             for food in l:
                 reply = reply + food + "\n"
-        reply = reply + "請繼續輸入類別"
-        text = [title, reply]
-        buttons = ["結束"]
-        send_button_message(reply_token, text, buttons)
+        reply = reply + "請繼續輸入類別或輸入\"結束\""
+        #text = [title, reply]
+        #buttons = ["結束"]
+        #send_button_message(reply_token, text, buttons)
+        send_text_message(reply_token, reply)
