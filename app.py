@@ -95,7 +95,7 @@ machine = TocMachine(
 #            "dest": "user"
 #        }
     ],
-    initial="menu",
+    initial="user",
     auto_transitions=False,
     show_conditions=True,
 )
